@@ -32,7 +32,7 @@ define([
             contents: data.contents,
             content_type: 'product',
         });
-        $('#product-addtocart-button').on('click', function() {
+        $('#product-addtocart-button').on('click', function () {
             fbq('track', 'AddToCart', {
                 content_name: data.contents.name,
                 contents: data.contents,
