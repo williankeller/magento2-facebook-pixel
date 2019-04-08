@@ -24,5 +24,40 @@ use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
  */
 class PixelCode extends AbstractPixel
 {
+    /**
+     * @var \Magestat\FacebookPixel\Model\PixelConfigurationInterface
+     */
+    private $pixelConfiguration;
 
+    /**
+     * Product constructor.
+     * @param Context $context
+     * @param ResolverInterface $locale
+     * @param Cookie $cookieHelper
+     * @param Json $jsonHelper
+     * @param PixelConfigurationInterface $pixelConfiguration
+     * @param array $data
+     */
+    public function __construct(
+        Context $context,
+        ResolverInterface $locale,
+        Cookie $cookieHelper,
+        Json $jsonHelper,
+        PixelConfigurationInterface $pixelConfiguration,
+        array $data
+    ) {
+        parent::__construct($context, $locale, $cookieHelper, $jsonHelper, $pixelConfiguration, $data);
+        $this->pixelConfiguration = $pixelConfiguration;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function _toHtml()
+    {
+        if (!$this->pixelConfiguration->isEnabled()) {
+            return '';
+        }
+        return parent::_toHtml();
+    }
 }

@@ -72,7 +72,7 @@ abstract class AbstractPixel extends Template
     /**
      * @inheritdoc
      */
-    protected function _toHtml()
+    public function _toHtml()
     {
         if (!$this->pixelConfiguration->isEnabled()) {
             return '';
