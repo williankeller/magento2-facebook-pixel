@@ -22,10 +22,8 @@ define([
      * @private
      */
     return function (data) {
-        console.log(data);
         fbq('track', 'ViewContent', {
             contents: [data],
-            content_type: 'cart',
         });
     };
 });

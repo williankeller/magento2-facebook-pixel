@@ -37,7 +37,8 @@ define([
                 content_name: data.contents.name,
                 contents: data.contents,
                 value: data.contents.price,
-                currency: data.currency
+                currency: data.currency,
+                content_type: 'product'
             });
         });
     };

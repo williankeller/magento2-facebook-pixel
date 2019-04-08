@@ -63,7 +63,7 @@ class Product extends AbstractPixel
             'id' => $product->getSku(),
             'name' => $product->getName(),
             'item_price' => $product->getPrice(),
-            'quantity' => $product->getQty() ?? 1
+            'quantity' => $product->getQty() ?: 1
         ];
         return $this->jsonEncode($data);
     }
