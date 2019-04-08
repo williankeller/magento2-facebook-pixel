@@ -1,6 +1,6 @@
 # Facebook Pixel for Magento 2
 
-This extension allow you to setup 
+This extension allow you integrate the Facebook pixel to track your website visitors' actions. Tracked conversions appear in the Facebook Ads Manager and the Facebook Analytics dashboard, where they can be used to analyze the effectiveness of your conversion funnel and to calculate your return on ad investment.
 
 [![Build Status](https://travis-ci.org/magestat/magento2-facebook-pixel.svg?branch=develop)](https://travis-ci.org/magestat/magento2-facebook-pixel) [![Packagist](https://img.shields.io/packagist/v/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel) [![Downloads](https://img.shields.io/packagist/dt/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel)
 
@@ -24,7 +24,7 @@ git clone git@github.com:magestat/magento2-facebook-pixel.git app/code/Magestat/
 
 Run the following command in Magento 2 root folder:
 ```sh
-php bin/magento module:enable Magestat_FacebookPixel --clear-static-content
+php bin/magento module:enable Magestat_FacebookPixel
 ```
 
 ```sh
@@ -39,12 +39,32 @@ php bin/magento cache:clean
 ## 3. Configuration
 
 1. Go to **Stores** > **Configuration** > **Magestat** > **Facebook Pixel**:
-2. In **Enable Module** tab, select **Enabled** option to enable the module (possible per store).
-3. In **Settings** tab, Fill the Facebook Pixel Track Code.
+2. Under **Enable Module** tab, select **Enabled** option to enable the module (possible per store).
+3. Under **Pixel ID** tab, Fill the Facebook Pixel Track Code ID.
+4. Under **Track Options** tab, Select which events you want to track.
+
+**Currently tracking:**
+- Page view:
+  - All page load
+- Product page:
+  - Content view
+  - Add to cart
+- Cart page:
+  - Content view
+- Checkout page:
+  - Initiate checkout
+- Success page
+  - Purchase event
+
+
+## Missing an Event Track?
+Let us know if your looking for a custom track or one of our events are not triggered properly.
+We
 
 ## Contribution
 
 Want to contribute to this extension? The quickest way is to open a [pull request on GitHub](https://help.github.com/articles/using-pull-requests).
+If we like your suggestion we will add this request for free at the next releases.
 
 ## Support
 
