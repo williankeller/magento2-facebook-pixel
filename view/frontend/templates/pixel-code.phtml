@@ -13,17 +13,20 @@
 /** @var \Magestat\FacebookPixel\Block\PixelCode $block */
 ?>
 <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=<?= /* @escapeNotVerified */ $block->getPixelCode() ?>&ev=PageView&noscript=1"/>
+    <img height="1"
+         width="1"
+         style="display:none"
+         src="https://www.facebook.com/tr?id=<?= /* @noEscape */ $block->getPixelCode() ?>&ev=PageView&noscript=1"/>
 </noscript>
 <script type="text/x-magento-init">
 {
     "*": {
-        "Magestat_FacebookPixel/js/facebook-pixel-code": {
-            "isCookieRestrictionModeEnabled": <?= /* @escapeNotVerified */  $block->isCookieRestrictionModeEnabled() ?>,
-             "currentWebsite": <?= /* @escapeNotVerified */  $block->getCurrentWebsiteId() ?>,
-             "cookieName": "<?= /* @escapeNotVerified */ \Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>",
-             "pixelCode": "<?= /* @escapeNotVerified */ $block->getPixelCode() ?>",
-             "storeCurrencyCode": "<?= /* @escapeNotVerified */ $block->getStoreCurrencyCode() ?>"
+        "Magestat_FacebookPixel/js/pixel-code": {
+            "isCookieEnabled": <?= /* @noEscape */  $block->isCookieEnabled() ?>,
+            "currentWebsite": <?= /* @noEscape */ $block->getCurrentWebsiteId() ?>,
+            "pixelCode": "<?= /* @noEscape */ $block->getPixelCode() ?>",
+            "storeCurrency": "<?= /* @noEscape */ $block->getCurrencyCode() ?>",
+            "cookieName": "<?= /* @noEscape */ \Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>"
         }
     }
 }

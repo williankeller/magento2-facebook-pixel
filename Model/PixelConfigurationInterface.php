@@ -14,6 +14,7 @@ namespace Magestat\FacebookPixel\Model;
 
 /**
  * Interface PixelConfigurationInterface
+ * @api
  * @package Magestat\FacebookPixel\Model
  */
 interface PixelConfigurationInterface

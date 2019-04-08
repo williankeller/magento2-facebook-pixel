@@ -10,22 +10,28 @@
 
 define([
     'jquery',
-    'Magestat_FacebookPixel/js/facebook-pixel-code'
+    'Magestat_FacebookPixel/js/pixel-code'
 ], function ($) {
     'use strict';
-    console.log('loaded');
+
     /**
-     * Dispatch product detail event to Facebook Pixel
+     * Dispatch checkout success event to Facebook Pixel
      *
      * @param {Object} data - product data
      *
      * @private
      */
-    return function (productData) {
-        console.log(productData);
-        fbq('track', 'ViewContent', {
-            content_name: 'productDetail',
-            contents: [productData]
+    return function (data) {
+        // Avoid errors if "fbq" don't exist.
+        if (typeof fbq !== 'function') {
+            return;
+        }
+
+        fbq('track', 'Purchase', {
+            value: data.contents.price,
+            currency: data.currency,
+            contents: data.contents,
+            content_type: 'product'
         });
     };
 });

@@ -18,12 +18,11 @@ define([
      * @param {Object} config
      */
     return function (config) {
-        console.log('file called', config);
-        let  allowServices = false,
+        let allowServices = false,
             allowedCookies,
             allowedWebsites;
 
-        if (config.isCookieRestrictionModeEnabled) {
+        if (config.isCookieEnabled) {
             allowedCookies = $.mage.cookies.get(config.cookieName);
 
             if (allowedCookies !== null) {

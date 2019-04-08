@@ -13,9 +13,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="before.body.end">
-            <block class="Magestat\FacebookPixel\Block\Product"
-                   name="magestat_facebook_pixel_product"
-                   template="Magestat_FacebookPixel::actions/product.phtml"
+            <block class="Magestat\FacebookPixel\Block\Checkout"
+                   name="magestat_facebook_pixel_success"
+                   template="Magestat_FacebookPixel::actions/checkout.phtml"
                    ifconfig="magestat_facebook_pixel/module/enabled"/>
         </referenceContainer>
     </body>

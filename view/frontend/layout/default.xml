@@ -14,7 +14,8 @@
     <body>
         <referenceContainer name="head.additional">
             <block class="Magestat\FacebookPixel\Block\PixelCode"
-                   name="magestat.facebook.pixel" template="Magestat_FacebookPixel::pixel-code.phtml"
+                   name="magestat.facebook.pixel"
+                   template="Magestat_FacebookPixel::pixel-code.phtml"
                    ifconfig="magestat_facebook_pixel/module/enabled"/>
         </referenceContainer>
     </body>
