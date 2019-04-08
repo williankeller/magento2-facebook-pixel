@@ -16,7 +16,7 @@
             <block class="Magestat\FacebookPixel\Block\Product"
                    name="magestat_facebook_pixel_product"
                    template="Magestat_FacebookPixel::actions/product.phtml"
-                   ifconfig="magestat_facebook_pixel/module/enabled"/>
+                   ifconfig="magestat_facebook_pixel/track/productß"/>
         </referenceContainer>
     </body>
 </page>

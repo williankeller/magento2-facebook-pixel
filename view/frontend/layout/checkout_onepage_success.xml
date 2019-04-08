@@ -16,7 +16,7 @@
             <block class="Magestat\FacebookPixel\Block\Success"
                    name="magestat_facebook_pixel_success"
                    template="Magestat_FacebookPixel::actions/success.phtml"
-                   ifconfig="magestat_facebook_pixel/module/enabled"/>
+                   ifconfig="magestat_facebook_pixel/track/success"/>
         </referenceContainer>
     </body>
 </page>

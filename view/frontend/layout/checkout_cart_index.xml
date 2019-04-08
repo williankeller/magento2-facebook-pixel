@@ -16,7 +16,7 @@
             <block class="Magestat\FacebookPixel\Block\Checkout"
                    name="magestat_facebook_pixel_cart"
                    template="Magestat_FacebookPixel::actions/cart.phtml"
-                   ifconfig="magestat_facebook_pixel/module/enabled"/>
+                   ifconfig="magestat_facebook_pixel/track/cartß"/>
         </referenceContainer>
     </body>
 </page>
