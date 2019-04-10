@@ -1,6 +1,6 @@
 {
     "name": "magestat/module-facebook-pixel",
-    "description": "",
+    "description": "This extension allow you integrate the Facebook pixel to track your website visitors' actions.",
     "keywords": [
         "magento 2",
         "magento extension",
@@ -13,7 +13,7 @@
     "license": [
         "OSL-3.0"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "support": {
         "issues": "https://github.com/magestat/magento2-facebook-pixel/issues/"
     },
