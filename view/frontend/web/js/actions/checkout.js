@@ -32,7 +32,7 @@ define([
             contents: data.contents,
             currency: data.currency,
             num_items: data.qty,
-            value: data.contents.price
+            value: data.total
         });
     };
 });

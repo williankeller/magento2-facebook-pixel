@@ -120,4 +120,12 @@ class Checkout extends AbstractPixel
     {
         return $this->getCurrentQuote()->getItemsQty();
     }
+
+    /**
+     * @return float
+     */
+    public function getCheckoutTotal()
+    {
+        return $this->getCurrentQuote()->getBaseSubtotal();
+    }
 }

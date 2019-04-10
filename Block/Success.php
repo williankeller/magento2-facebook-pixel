@@ -120,4 +120,12 @@ class Success extends AbstractPixel
     {
         return $this->getCurrentQuote()->getTotalItemCount();
     }
+
+    /**
+     * @return float
+     */
+    public function getCheckoutTotal()
+    {
+        return $this->getCurrentQuote()->getBaseSubtotal();
+    }
 }
