@@ -30,6 +30,7 @@ define([
             content_name: data.contents.name,
             contents: data.contents,
             value: data.contents.item_price,
+            currency: data.currency,
             content_type: 'product'
         });
         $('#product-addtocart-button').on('click', function () {
