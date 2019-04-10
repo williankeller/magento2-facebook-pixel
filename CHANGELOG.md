@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 #### Fixed
 - Implement `value` attribute to track code.
+- Fixed amount using rounded value.
 
 ### [1.0.0](https://github.com/magestat/magento2-facebook-pixel/releases/tag/1.0.0) 2019-04-08
 

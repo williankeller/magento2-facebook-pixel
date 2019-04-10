@@ -11,12 +11,13 @@
 
 namespace Magestat\FacebookPixel\Block;
 
+use Magento\Framework\View\Element\Template\Context;
+use Magento\Framework\Locale\ResolverInterface;
 use Magento\Cookie\Helper\Cookie;
 use Magento\Framework\Serialize\Serializer\Json;
-use Magento\Framework\Locale\ResolverInterface;
-use Magento\Framework\View\Element\Template\Context;
-use Magento\Catalog\Helper\Data;
+use Magento\Directory\Model\PriceCurrency;
 use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
+use Magento\Catalog\Helper\Data;
 
 /**
  * Class ProductDetail
@@ -35,6 +36,7 @@ class Product extends AbstractPixel
      * @param ResolverInterface $locale
      * @param Cookie $cookieHelper
      * @param Json $jsonHelper
+     * @param PriceCurrency $price
      * @param PixelConfigurationInterface $pixelConfiguration
      * @param Data $catalogHelper
      * @param array $data
@@ -44,11 +46,12 @@ class Product extends AbstractPixel
         ResolverInterface $locale,
         Cookie $cookieHelper,
         Json $jsonHelper,
+        PriceCurrency $price,
         PixelConfigurationInterface $pixelConfiguration,
         Data $catalogHelper,
         array $data
     ) {
-        parent::__construct($context, $locale, $cookieHelper, $jsonHelper, $pixelConfiguration, $data);
+        parent::__construct($context, $locale, $cookieHelper, $jsonHelper, $price, $pixelConfiguration, $data);
         $this->catalogHelper = $catalogHelper;
     }
 
@@ -62,7 +65,7 @@ class Product extends AbstractPixel
         $data = [
             'id' => $product->getSku(),
             'name' => $product->getName(),
-            'item_price' => $product->getPrice(),
+            'item_price' => $this->formatPrice($product->getPrice()),
             'quantity' => $product->getQty() ?: 1
         ];
         return $this->jsonEncode($data);

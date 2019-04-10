@@ -16,8 +16,9 @@ use Magento\Cookie\Helper\Cookie;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\Locale\ResolverInterface;
 use Magento\Framework\View\Element\Template\Context;
-use Magento\Checkout\Model\Session;
+use Magento\Directory\Model\PriceCurrency;
 use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
+use Magento\Checkout\Model\Session;
 
 /**
  * Class PixelCode
@@ -42,6 +43,7 @@ class Checkout extends AbstractPixel
      * @param ResolverInterface $locale
      * @param Cookie $cookieHelper
      * @param Json $jsonHelper
+     * @param PriceCurrency $price
      * @param PixelConfigurationInterface $pixelConfiguration
      * @param Session $checkoutSession
      * @param array $data
@@ -51,11 +53,12 @@ class Checkout extends AbstractPixel
         ResolverInterface $locale,
         Cookie $cookieHelper,
         Json $jsonHelper,
+        PriceCurrency $price,
         PixelConfigurationInterface $pixelConfiguration,
         Session $checkoutSession,
         array $data
     ) {
-        parent::__construct($context, $locale, $cookieHelper, $jsonHelper, $pixelConfiguration, $data);
+        parent::__construct($context, $locale, $cookieHelper, $jsonHelper, $price, $pixelConfiguration, $data);
         $this->checkoutSession = $checkoutSession;
     }
 
@@ -70,7 +73,7 @@ class Checkout extends AbstractPixel
         $product = [];
         $product['id'] = $item->getSku();
         $product['name'] = $item->getName();
-        $product['item_price'] = $item->getPrice();
+        $product['item_price'] = $this->formatPrice($item->getPrice());
         $product['quantity'] = $item->getQty();
 
         return $product;
@@ -126,6 +129,8 @@ class Checkout extends AbstractPixel
      */
     public function getCheckoutTotal()
     {
-        return $this->getCurrentQuote()->getBaseSubtotal();
+        return $this->formatPrice(
+            $this->getCurrentQuote()->getBaseSubtotal()
+        );
     }
 }

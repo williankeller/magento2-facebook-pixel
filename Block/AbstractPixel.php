@@ -17,6 +17,7 @@ use Magento\Framework\Locale\ResolverInterface;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Cookie\Helper\Cookie;
 use Magento\Framework\Serialize\Serializer\Json;
+use Magento\Directory\Model\PriceCurrency;
 use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 
 /**
@@ -41,6 +42,11 @@ abstract class AbstractPixel extends Template
     private $jsonHelper;
 
     /**
+     * @var \Magento\Directory\Model\PriceCurrency
+     */
+    private $price;
+
+    /**
      * @var \Magestat\FacebookPixel\Model\PixelConfigurationInterface
      */
     private $pixelConfiguration;
@@ -51,6 +57,7 @@ abstract class AbstractPixel extends Template
      * @param ResolverInterface $locale
      * @param Cookie $cookieHelper
      * @param Json $jsonHelper
+     * @param PriceCurrency $price
      * @param PixelConfigurationInterface $pixelConfiguration
      * @param array $data
      */
@@ -59,6 +66,7 @@ abstract class AbstractPixel extends Template
         ResolverInterface $locale,
         Cookie $cookieHelper,
         Json $jsonHelper,
+        PriceCurrency $price,
         PixelConfigurationInterface $pixelConfiguration,
         array $data
     ) {
@@ -66,6 +74,7 @@ abstract class AbstractPixel extends Template
         $this->locale = $locale;
         $this->cookieHelper = $cookieHelper;
         $this->jsonHelper = $jsonHelper;
+        $this->price = $price;
         $this->pixelConfiguration = $pixelConfiguration;
     }
 
@@ -133,5 +142,14 @@ abstract class AbstractPixel extends Template
     public function jsonEncode(array $data)
     {
         return $this->jsonHelper->serialize($data);
+    }
+
+    /**
+     * @param $amount
+     * @return float
+     */
+    public function formatPrice($amount)
+    {
+        return $this->price->roundPrice($amount);
     }
 }
