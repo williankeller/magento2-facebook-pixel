@@ -1,6 +1,6 @@
 # Facebook Pixel for Magento 2
 
-This extension allow you integrate the Facebook pixel to track your website visitors' actions. Tracked conversions appear in the Facebook Ads Manager and the Facebook Analytics dashboard, where they can be used to analyze the effectiveness of your conversion funnel and to calculate your return on ad investment.
+This extension allow you integrate the Facebook pixel to track your website visitors' actions. Tracked conversions appear in the Facebook Ads Manager and the Facebook Analytics dashboard, where they can be used to analyze the effectiveness of your conversion funnel and to calculate your return on ad investment. Our extension is also compatible with Magento cookies permissions. 
 
 [![Build Status](https://travis-ci.org/magestat/magento2-facebook-pixel.svg?branch=develop)](https://travis-ci.org/magestat/magento2-facebook-pixel) [![Packagist](https://img.shields.io/packagist/v/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel) [![Downloads](https://img.shields.io/packagist/dt/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel)
 
