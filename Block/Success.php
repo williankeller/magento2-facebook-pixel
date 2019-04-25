@@ -132,7 +132,7 @@ class Success extends AbstractPixel
     public function getCheckoutTotal()
     {
         return $this->formatPrice(
-            $this->getCurrentQuote()->getBaseSubtotal()
+            $this->getCurrentQuote()->getBaseGrandTotal()
         );
     }
 }
