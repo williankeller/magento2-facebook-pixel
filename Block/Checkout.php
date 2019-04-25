@@ -17,8 +17,9 @@ use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\Locale\ResolverInterface;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Directory\Model\PriceCurrency;
-use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 use Magento\Checkout\Model\Session;
+use Magento\Catalog\Helper\Data;
+use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 
 /**
  * Class PixelCode
@@ -38,6 +39,16 @@ class Checkout extends AbstractPixel
     private $quote = null;
 
     /**
+     * @var \Magento\Catalog\Helper\Data
+     */
+    private $catalogHelper;
+
+    /**
+     * @var \Magestat\FacebookPixel\Model\PixelConfigurationInterface
+     */
+    private $pixelConfiguration;
+
+    /**
      * Checkout constructor.
      * @param Context $context
      * @param ResolverInterface $locale
@@ -46,6 +57,7 @@ class Checkout extends AbstractPixel
      * @param PriceCurrency $price
      * @param PixelConfigurationInterface $pixelConfiguration
      * @param Session $checkoutSession
+     * @param Data $catalogHelper
      * @param array $data
      */
     public function __construct(
@@ -56,10 +68,13 @@ class Checkout extends AbstractPixel
         PriceCurrency $price,
         PixelConfigurationInterface $pixelConfiguration,
         Session $checkoutSession,
+        Data $catalogHelper,
         array $data
     ) {
         parent::__construct($context, $locale, $cookieHelper, $jsonHelper, $price, $pixelConfiguration, $data);
         $this->checkoutSession = $checkoutSession;
+        $this->catalogHelper = $catalogHelper;
+        $this->pixelConfiguration = $pixelConfiguration;
     }
 
     /**
@@ -73,8 +88,8 @@ class Checkout extends AbstractPixel
         $product = [];
         $product['id'] = $item->getSku();
         $product['name'] = $item->getName();
-        $product['item_price'] = $this->formatPrice($item->getPrice());
-        $product['quantity'] = $item->getQty();
+        $product['item_price'] = $this->formatPrice($this->productPrice($item));
+        $product['quantity'] = $this->formatQty($item->getQty());
 
         return $product;
     }
@@ -121,7 +136,9 @@ class Checkout extends AbstractPixel
      */
     public function getCheckoutQty()
     {
-        return $this->getCurrentQuote()->getItemsQty();
+        return $this->formatQty(
+            $this->getCurrentQuote()->getItemsQty()
+        );
     }
 
     /**
@@ -130,7 +147,19 @@ class Checkout extends AbstractPixel
     public function getCheckoutTotal()
     {
         return $this->formatPrice(
-            $this->getCurrentQuote()->getBaseSubtotal()
+            $this->getCurrentQuote()->getBaseGrandTotal()
         );
+    }
+
+    /**
+     * @param \Magento\Catalog\Model\Product $product
+     * @return float
+     */
+    private function productPrice($product)
+    {
+        if ($this->pixelConfiguration->getIncludeTax()) {
+            return $this->catalogHelper->getTaxPrice($product, $product->getFinalPrice(), true);
+        }
+        return $product->getFinalPrice();
     }
 }

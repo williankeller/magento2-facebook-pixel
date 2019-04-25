@@ -29,6 +29,7 @@ define([
 
         fbq('track', 'InitiateCheckout', {
             content_ids: data.contentIds,
+            content_type: 'product',
             contents: data.contents,
             currency: data.currency,
             num_items: data.qty,

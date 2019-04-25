@@ -152,4 +152,13 @@ abstract class AbstractPixel extends Template
     {
         return $this->price->roundPrice($amount);
     }
+
+    /**
+     * @param float $value
+     * @return int
+     */
+    public function formatQty($value)
+    {
+        return (int) number_format($value, 2, '.', '');
+    }
 }

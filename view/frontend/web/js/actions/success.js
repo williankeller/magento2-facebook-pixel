@@ -29,8 +29,9 @@ define([
 
         fbq('track', 'Purchase', {
             value: data.total,
+            content_type: 'product',
             currency: data.currency,
-            contents: data.contents
+            contents: data.contents,
         });
     };
 });

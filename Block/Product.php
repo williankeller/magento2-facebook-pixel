@@ -16,8 +16,8 @@ use Magento\Framework\Locale\ResolverInterface;
 use Magento\Cookie\Helper\Cookie;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Directory\Model\PriceCurrency;
-use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 use Magento\Catalog\Helper\Data;
+use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 
 /**
  * Class ProductDetail
@@ -29,6 +29,11 @@ class Product extends AbstractPixel
      * @var \Magento\Catalog\Helper\Data
      */
     private $catalogHelper;
+
+    /**
+     * @var \Magestat\FacebookPixel\Model\PixelConfigurationInterface
+     */
+    private $pixelConfiguration;
 
     /**
      * Product constructor.
@@ -53,6 +58,7 @@ class Product extends AbstractPixel
     ) {
         parent::__construct($context, $locale, $cookieHelper, $jsonHelper, $price, $pixelConfiguration, $data);
         $this->catalogHelper = $catalogHelper;
+        $this->pixelConfiguration = $pixelConfiguration;
     }
 
     /**
@@ -65,9 +71,21 @@ class Product extends AbstractPixel
         $data = [
             'id' => $product->getSku(),
             'name' => $product->getName(),
-            'item_price' => $this->formatPrice($product->getPrice()),
+            'item_price' => $this->formatPrice($this->productPrice($product)),
             'quantity' => $product->getQty() ?: 1
         ];
         return $this->jsonEncode($data);
+    }
+
+    /**
+     * @param \Magento\Catalog\Model\Product $product
+     * @return float
+     */
+    private function productPrice($product)
+    {
+        if ($this->pixelConfiguration->getIncludeTax()) {
+            return $this->catalogHelper->getTaxPrice($product, $product->getFinalPrice(), true);
+        }
+        return $product->getFinalPrice();
     }
 }

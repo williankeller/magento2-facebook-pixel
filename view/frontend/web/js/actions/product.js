@@ -11,7 +11,7 @@
 define([
     'jquery',
     'Magestat_FacebookPixel/js/pixel-code'
-], function ($, pixelCode) {
+], function ($) {
     'use strict';
 
     /**
@@ -27,16 +27,16 @@ define([
             return;
         }
         fbq('track', 'ViewContent', {
+            content_ids: data.contents.id,
             content_name: data.contents.name,
-            contents: data.contents,
             value: data.contents.item_price,
             currency: data.currency,
             content_type: 'product'
         });
         $('#product-addtocart-button').on('click', function () {
             fbq('track', 'AddToCart', {
+                content_ids: data.contents.id,
                 content_name: data.contents.name,
-                contents: data.contents,
                 value: data.contents.item_price,
                 currency: data.currency,
                 content_type: 'product'

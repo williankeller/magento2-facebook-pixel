@@ -50,4 +50,12 @@ class PixelConfiguration implements PixelConfigurationInterface
     {
         return $this->scopeConfig->getValue(self::XML_PATH_FB_PIXEL_ID, ScopeInterface::SCOPE_STORE);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getIncludeTax()
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_FB_INC_TAX, ScopeInterface::SCOPE_STORE);
+    }
 }

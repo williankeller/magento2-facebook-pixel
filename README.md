@@ -40,20 +40,22 @@ php bin/magento cache:clean
 
 1. Go to **Stores** > **Configuration** > **Magestat** > **Facebook Pixel**:
 2. Under **Enable Module** tab, select **Enabled** option to enable the module (possible per store).
+3. Under **Settings** tab, Select option if you want to Include product taxes.
 3. Under **Pixel ID** tab, Fill the Facebook Pixel Track Code ID.
 4. Under **Track Options** tab, Select which events you want to track.
 
 **Currently tracking:**
 - Page view:
+  - Content view
   - All page load
 - Product page:
   - Content view
   - Add to cart
-- Cart page:
-  - Content view
 - Checkout page:
+  - Content view
   - Initiate checkout
 - Success page
+  - Content view
   - Purchase event
 
 

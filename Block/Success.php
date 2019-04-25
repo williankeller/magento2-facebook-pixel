@@ -74,7 +74,7 @@ class Success extends AbstractPixel
         $product['id'] = $item->getSku();
         $product['name'] = $item->getName();
         $product['item_price'] = $this->formatPrice($item->getPrice());
-        $product['quantity'] = $item->getQtyOrdered();
+        $product['quantity'] = $this->formatQty($item->getQtyOrdered());
 
         return $product;
     }
@@ -121,7 +121,9 @@ class Success extends AbstractPixel
      */
     public function getCheckoutQty()
     {
-        return $this->getCurrentQuote()->getTotalItemCount();
+        return $this->formatQty(
+            $this->getCurrentQuote()->getTotalItemCount()
+        );
     }
 
     /**

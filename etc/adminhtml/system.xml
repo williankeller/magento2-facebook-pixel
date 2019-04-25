@@ -35,17 +35,19 @@
                     </depends>
                 </field>
             </group>
+            <group id="settings" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
+                <label>Settings</label>
+                <field id="inc_tax" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
             <group id="track" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
                 <label>Track Options</label>
                 <field id="product" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Product</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Track events under the Product Page</comment>
-                </field>
-                <field id="cart" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Cart</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment>Track events under the Cart Page</comment>
                 </field>
                 <field id="checkout" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Checkout</label>
