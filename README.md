@@ -1,6 +1,8 @@
 # Facebook Pixel for Magento 2
 
-This extension allow you integrate the Facebook pixel to track your website visitors' actions. Tracked conversions appear in the Facebook Ads Manager and the Facebook Analytics dashboard, where they can be used to analyze the effectiveness of your conversion funnel and to calculate your return on ad investment. Our extension is also compatible with Magento cookies permissions. 
+This free Facebook Pixel extension allows you to track your visitors' actions by sending events to your Facebook Ads Manager and the Facebook Analytics dashboard where they can be used to analyze the effectiveness of your conversion funnel and to calculate your return on ad investment.
+
+*This extension is also compatible with **[Magento cookies permissions](https://docs.magento.com/m2/ce/user_guide/stores/compliance-cookie-restriction-mode.html)**.*
 
 [![Build Status](https://travis-ci.org/magestat/magento2-facebook-pixel.svg?branch=develop)](https://travis-ci.org/magestat/magento2-facebook-pixel) [![Packagist](https://img.shields.io/packagist/v/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel) [![Downloads](https://img.shields.io/packagist/dt/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel)
 
@@ -38,30 +40,30 @@ php bin/magento cache:clean
 
 ## 3. Configuration
 
-1. Go to **Stores** > **Configuration** > **Magestat** > **Facebook Pixel**:
-2. Under **Enable Module** tab, select **Enabled** option to enable the module (possible per store).
-3. Under **Settings** tab, Select option if you want to Include product taxes.
-3. Under **Pixel ID** tab, Fill the Facebook Pixel Track Code ID.
-4. Under **Track Options** tab, Select which events you want to track.
+1. **Stores** > **Configuration** > **Magestat** > **Facebook Pixel**:
+2. **Enable Module** tab, select **Enabled** option to enable the module (toggling per store).
+3. **Settings** tab, Select option if you want to Include Product Taxes.
+3. **Pixel ID** tab, Fill the Facebook Pixel Track Code ID.
+4. **Track Options** tab, Select which events you want to track.
 
 **Currently tracking:**
 - Page view:
   - Content view
-  - All page load
+  - All and every page load
 - Product page:
   - Content view
-  - Add to cart
+  - **Add to cart** event
 - Checkout page:
   - Content view
-  - Initiate checkout
+  - **Initiate checkout** event
 - Success page
   - Content view
-  - Purchase event
+  - **Purchase** event
 
 
 ## Missing an Event Track?
+
 Let us know if your looking for a custom track or one of our events are not triggered properly.
-We
 
 ## Contribution
 
