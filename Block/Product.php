@@ -11,12 +11,12 @@
 
 namespace Magestat\FacebookPixel\Block;
 
-use Magento\Framework\View\Element\Template\Context;
-use Magento\Framework\Locale\ResolverInterface;
-use Magento\Cookie\Helper\Cookie;
-use Magento\Framework\Serialize\Serializer\Json;
-use Magento\Directory\Model\PriceCurrency;
 use Magento\Catalog\Helper\Data;
+use Magento\Cookie\Helper\Cookie;
+use Magento\Directory\Model\PriceCurrency;
+use Magento\Framework\Locale\ResolverInterface;
+use Magento\Framework\Serialize\Serializer\Json;
+use Magento\Framework\View\Element\Template\Context;
 use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 
 /**
