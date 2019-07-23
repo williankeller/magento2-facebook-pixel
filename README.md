@@ -6,9 +6,9 @@ This free Facebook Pixel extension allows you to track your visitors' actions by
 
 [![Build Status](https://travis-ci.org/magestat/magento2-facebook-pixel.svg?branch=develop)](https://travis-ci.org/magestat/magento2-facebook-pixel) [![Packagist](https://img.shields.io/packagist/v/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel) [![Downloads](https://img.shields.io/packagist/dt/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel)
 
-## 1. Installation
+## Installation
 
-### Install via composer (recommend)
+### Install via composer _(recommended)_
 
 Run the following command in Magento 2 root folder:
 ```sh
@@ -22,7 +22,7 @@ Run the following command in Magento 2 root folder:
 git clone git@github.com:magestat/magento2-facebook-pixel.git app/code/Magestat/FacebookPixel
 ```
 
-## 2. Activation
+## Activation
 
 Run the following command in Magento 2 root folder:
 ```sh
@@ -38,9 +38,9 @@ Clear the caches:
 php bin/magento cache:clean
 ```
 
-## 3. Configuration
+## Configuration
 
-1. **Stores** > **Configuration** > **Magestat** > **Facebook Pixel**:
+1. **Stores** > **Configuration** > **MAGESTAT** > **Facebook Pixel**:
 2. **Enable Module** tab, select **Enabled** option to enable the module (toggling per store).
 3. **Settings** tab, Select option if you want to Include Product Taxes.
 3. **Pixel ID** tab, Fill the Facebook Pixel Track Code ID.
@@ -74,6 +74,6 @@ If we like your suggestion we will add this request for free at the next release
 
 If you encounter any problems or bugs, please open an issue on [GitHub](https://github.com/magestat/magento2-facebook-pixel/issues).
 
-Need help setting up or want to customize this extension to meet your business needs? Please open an issue and if we like your idea we will add this feature for free or at a discounted rate.
+Need help setting up or want to customize this extension to meet your business needs? Please open an issue and if we like your idea we will add this feature for free.
 
 © Magestat.
