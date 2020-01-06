@@ -8,8 +8,8 @@ This free Facebook Pixel extension allows you to track your visitors' actions by
 
 ## Compatibility
 This is the tested versions:
-```sh
- >= 2.3.1 EE/CE
+```
+>= 2.3.1 EE/CE
 ```
 
 ## Installation
