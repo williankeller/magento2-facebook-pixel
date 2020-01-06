@@ -25,7 +25,7 @@ composer require magestat/module-facebook-pixel
 
 Run the following command in Magento 2 root folder:
 ```sh
-git clone git@github.com:magestat/magento2-facebook-pixel.git app/code/Magestat/FacebookPixel
+git clone git@github.com:williankeller/magento2-facebook-pixel.git app/code/Magestat/FacebookPixel
 ```
 
 ## Activation
@@ -78,8 +78,6 @@ If we like your suggestion we will add this request for free at the next release
 
 ## Support
 
-If you encounter any problems or bugs, please open an issue on [GitHub](https://github.com/magestat/magento2-facebook-pixel/issues).
-
-Need help setting up or want to customize this extension to meet your business needs? Please open an issue and if we like your idea we will add this feature for free.
+If you encounter any problems or bugs, please open an issue on [GitHub](https://github.com/williankeller/magento2-facebook-pixel/issues).
 
 © Magestat.
