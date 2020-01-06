@@ -1,55 +1,48 @@
 <?php
 
-/**
- * A Magento 2 module named Magestat/FacebookPixel
- * Copyright (C) 2019 Magestat
- *
- * This file included in Magestat/FacebookPixel is licensed under OSL 3.0
- *
- * http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * Please see LICENSE.txt for the full text of the OSL 3.0 license
- */
-
 namespace Magestat\FacebookPixel\Block;
 
 use Magento\Cookie\Helper\Cookie;
+use Magento\Catalog\Helper\Data;
+use Magento\Checkout\Model\Session;
+use Magento\Catalog\Model\Product;
+use Magento\Directory\Model\PriceCurrency;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\Locale\ResolverInterface;
 use Magento\Framework\View\Element\Template\Context;
-use Magento\Directory\Model\PriceCurrency;
-use Magento\Checkout\Model\Session;
-use Magento\Catalog\Helper\Data;
+use Magento\Quote\Model\Quote;
+use Magento\Quote\Model\Quote\Item;
 use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 
 /**
  * Class PixelCode
+ * Handle checkout data to be given to the pixel tracker.
+ *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @package Magestat\FacebookPixel\Block
  */
 class Checkout extends AbstractPixel
 {
     /**
-     * @var \Magento\Checkout\Model\Session
+     * @var Session
      */
     private $checkoutSession;
 
     /**
-     * @var \Magento\Quote\Model\Quote|null
+     * @var Quote|null
      */
     private $quote = null;
 
     /**
-     * @var \Magento\Catalog\Helper\Data
+     * @var Data
      */
     private $catalogHelper;
 
     /**
-     * @var \Magestat\FacebookPixel\Model\PixelConfigurationInterface
+     * @var PixelConfigurationInterface
      */
     private $pixelConfiguration;
 
     /**
-     * Checkout constructor.
      * @param Context $context
      * @param ResolverInterface $locale
      * @param Cookie $cookieHelper
@@ -80,7 +73,7 @@ class Checkout extends AbstractPixel
     /**
      * Format product item for output to json
      *
-     * @param $item \Magento\Quote\Model\Quote\Item
+     * @param $item Item
      * @return array
      */
     private function formatProduct($item)
@@ -95,7 +88,7 @@ class Checkout extends AbstractPixel
     }
 
     /**
-     * @return \Magento\Quote\Model\Quote
+     * @return Quote
      */
     public function getCurrentQuote()
     {
@@ -108,10 +101,10 @@ class Checkout extends AbstractPixel
     /**
      * @return string
      */
-    public function getCartContent()
+    public function getCartContent(): string
     {
         $cart = [];
-        /** @var \Magento\Quote\Model\Quote\Item $item */
+        /** @var Item $item */
         foreach ($this->getCurrentQuote()->getAllVisibleItems() as $item) {
             $cart[] = $this->formatProduct($item);
         }
@@ -121,10 +114,10 @@ class Checkout extends AbstractPixel
     /**
      * @return string
      */
-    public function getSkuList()
+    public function getSkuList(): string
     {
         $skuList = [];
-        /** @var \Magento\Quote\Model\Quote\Item $item */
+        /** @var Item $item */
         foreach ($this->getCurrentQuote()->getAllVisibleItems() as $item) {
             $skuList[] = $item->getSku();
         }
@@ -152,7 +145,7 @@ class Checkout extends AbstractPixel
     }
 
     /**
-     * @param \Magento\Catalog\Model\Product $product
+     * @param Product $product
      * @return float
      */
     private function productPrice($product)

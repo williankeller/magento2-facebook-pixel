@@ -1,44 +1,35 @@
 <?php
 
-/**
- * A Magento 2 module named Magestat/FacebookPixel
- * Copyright (C) 2019 Magestat
- *
- * This file included in Magestat/FacebookPixel is licensed under OSL 3.0
- *
- * http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * Please see LICENSE.txt for the full text of the OSL 3.0 license
- */
-
 namespace Magestat\FacebookPixel\Block;
 
+use Magento\Checkout\Model\Session;
+use Magento\Cookie\Helper\Cookie;
+use Magento\Directory\Model\PriceCurrency;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Framework\Locale\ResolverInterface;
-use Magento\Cookie\Helper\Cookie;
 use Magento\Framework\Serialize\Serializer\Json;
-use Magento\Directory\Model\PriceCurrency;
+use Magento\Sales\Model\Order;
+use Magento\Sales\Model\Order\Item;
 use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
-use Magento\Checkout\Model\Session;
 
 /**
  * Class Success
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
- * @package Magestat\FacebookPixel\Block
+ * Handle the success-page from checkout data to be given to the pixel tracker.
  */
 class Success extends AbstractPixel
 {
     /**
-     * @var \Magento\Checkout\Model\Session
+     * @var Session
      */
     private $checkoutSession;
 
     /**
-     * @var \Magento\Sales\Model\Order|null
+     * @var Order|null
      */
     private $quote = null;
 
     /**
-     * Success constructor.
      * @param Context $context
      * @param ResolverInterface $locale
      * @param Cookie $cookieHelper
@@ -65,10 +56,10 @@ class Success extends AbstractPixel
     /**
      * Format product item for output to json
      *
-     * @param $item \Magento\Sales\Model\Order\Item
+     * @param $item Item
      * @return array
      */
-    private function formatProduct($item)
+    private function formatProduct($item): array
     {
         $product = [];
         $product['id'] = $item->getSku();
@@ -80,7 +71,7 @@ class Success extends AbstractPixel
     }
 
     /**
-     * @return \Magento\Sales\Model\Order
+     * @return Order
      */
     public function getCurrentQuote()
     {
@@ -93,10 +84,10 @@ class Success extends AbstractPixel
     /**
      * @return string
      */
-    public function getCartContent()
+    public function getCartContent(): string
     {
         $cart = [];
-        /** @var \Magento\Sales\Model\Order\Item $item */
+        /** @var Item $item */
         foreach ($this->getCurrentQuote()->getItems() as $item) {
             $cart[] = $this->formatProduct($item);
         }
@@ -106,10 +97,10 @@ class Success extends AbstractPixel
     /**
      * @return string
      */
-    public function getSkuList()
+    public function getSkuList(): string
     {
         $skuList = [];
-        /** @var \Magento\Sales\Model\Order\Item $item */
+        /** @var Item $item */
         foreach ($this->getCurrentQuote()->getItems() as $item) {
             $skuList[] = $item->getSku();
         }

@@ -13,6 +13,7 @@ namespace Magestat\FacebookPixel\Block;
 
 use Magento\Catalog\Helper\Data;
 use Magento\Cookie\Helper\Cookie;
+use Magento\Catalog\Model\Product as CatalogProduct;
 use Magento\Directory\Model\PriceCurrency;
 use Magento\Framework\Locale\ResolverInterface;
 use Magento\Framework\Serialize\Serializer\Json;
@@ -21,22 +22,21 @@ use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 
 /**
  * Class ProductDetail
- * @package Magestat\FacebookPixel\Block
+ * Handle product detail data to be given to the pixel tracker.
  */
 class Product extends AbstractPixel
 {
     /**
-     * @var \Magento\Catalog\Helper\Data
+     * @var Data
      */
     private $catalogHelper;
 
     /**
-     * @var \Magestat\FacebookPixel\Model\PixelConfigurationInterface
+     * @var PixelConfigurationInterface
      */
     private $pixelConfiguration;
 
     /**
-     * Product constructor.
      * @param Context $context
      * @param ResolverInterface $locale
      * @param Cookie $cookieHelper
@@ -64,9 +64,9 @@ class Product extends AbstractPixel
     /**
      * @return string
      */
-    public function getCurrentProduct()
+    public function getCurrentProduct(): string
     {
-        /** @var \Magento\Catalog\Model\Product $product */
+        /** @var CatalogProduct $product */
         $product = $this->catalogHelper->getProduct();
         $data = [
             'id' => $product->getSku(),
@@ -78,7 +78,7 @@ class Product extends AbstractPixel
     }
 
     /**
-     * @param \Magento\Catalog\Model\Product $product
+     * @param CatalogProduct $product
      * @return float
      */
     private function productPrice($product)
