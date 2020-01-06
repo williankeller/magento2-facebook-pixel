@@ -4,7 +4,7 @@ This free Facebook Pixel extension allows you to track your visitors' actions by
 
 *This extension is also compatible with **[Magento Cookies Policy](https://docs.magento.com/m2/ce/user_guide/stores/compliance-cookie-restriction-mode.html)**.*
 
-[![Build Status](https://travis-ci.org/magestat/magento2-facebook-pixel.svg?branch=develop)](https://travis-ci.org/magestat/magento2-facebook-pixel) [![Packagist](https://img.shields.io/packagist/v/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel) [![Downloads](https://img.shields.io/packagist/dt/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel)
+[![Build Status](https://travis-ci.org/williankeller/magento2-facebook-pixel.svg?branch=develop)](https://travis-ci.org/williankeller/magento2-facebook-pixel) [![Packagist](https://img.shields.io/packagist/v/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel) [![Downloads](https://img.shields.io/packagist/dt/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel)
 
 ## Compatibility
 This is the tested versions:
