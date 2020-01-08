@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-### [1.0.3](https://github.com/williankeller/magento2-facebook-pixel/releases/tag/1.0.2) - 01/06/2020
+### [1.0.3](https://github.com/williankeller/magento2-facebook-pixel/releases/tag/1.0.3) - 01/07/2020
 
 #### Improved
 - Documentation
