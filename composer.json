@@ -17,9 +17,6 @@
     "support": {
         "issues": "https://github.com/magestat/magento2-facebook-pixel/issues/"
     },
-    "require": {
-        "magento/framework": ">=102.0.0"
-    },
     "require-dev": {
         "phpmd/phpmd": "@stable",
         "phpspec/phpspec": "^2.5",

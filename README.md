@@ -4,7 +4,7 @@ This free Facebook Pixel extension allows you to track your visitors' actions by
 
 *This extension is also compatible with **[Magento Cookies Policy](https://docs.magento.com/m2/ce/user_guide/stores/compliance-cookie-restriction-mode.html)**.*
 
-[![Build Status](https://travis-ci.org/williankeller/magento2-facebook-pixel.svg?branch=develop)](https://travis-ci.org/williankeller/magento2-facebook-pixel) [![Packagist](https://img.shields.io/packagist/v/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel) [![Downloads](https://img.shields.io/packagist/dt/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel)
+[![Build Status](https://travis-ci.org/magestat/magento2-facebook-pixel.svg?branch=develop)](https://travis-ci.org/magestat/magento2-facebook-pixel) [![Packagist](https://img.shields.io/packagist/v/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel) [![Downloads](https://img.shields.io/packagist/dt/magestat/module-facebook-pixel.svg)](https://packagist.org/packages/magestat/module-facebook-pixel)
 
 ## Compatibility
 This is the tested versions:
@@ -25,7 +25,7 @@ composer require magestat/module-facebook-pixel
 
 Run the following command in Magento 2 root folder:
 ```sh
-git clone git@github.com:williankeller/magento2-facebook-pixel.git app/code/Magestat/FacebookPixel
+git clone git@github.com:magestat/magento2-facebook-pixel.git app/code/Magestat/FacebookPixel
 ```
 
 ## Activation
@@ -46,7 +46,7 @@ php bin/magento cache:clean
 
 ## Configuration
 
-1. **Stores** > **Configuration** > **MAGESTAT** > **Facebook Pixel**:
+1. **STORES** > **Configuration** > **MAGESTAT** > **Facebook Pixel**:
 2. **Enable Module** tab, select **Enabled** option to enable the module (toggling per store).
 3. **Settings** tab, Select option if you want to Include Product Taxes.
 3. **Pixel ID** tab, Fill the Facebook Pixel Track Code ID.
@@ -78,6 +78,4 @@ If we like your suggestion we will add this request for free at the next release
 
 ## Support
 
-If you encounter any problems or bugs, please open an issue on [GitHub](https://github.com/williankeller/magento2-facebook-pixel/issues).
-
-© Magestat.
+If you encounter any problems or bugs, please open an issue on [GitHub](https://github.com/magestat/magento2-facebook-pixel/issues).

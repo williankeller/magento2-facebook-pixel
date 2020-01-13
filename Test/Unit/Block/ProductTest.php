@@ -8,6 +8,7 @@ use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 
 /**
  * Class ProductTest
+ * Testing product
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */

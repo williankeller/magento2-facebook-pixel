@@ -7,6 +7,7 @@ use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
 
 /**
  * Class PixelCodeTest
+ * Testing Pixel code
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */

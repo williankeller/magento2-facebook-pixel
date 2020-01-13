@@ -1,15 +1,5 @@
 <?php
 
-/**
- * A Magento 2 module named Magestat/FacebookPixel
- * Copyright (C) 2019 Magestat
- *
- * This file included in Magestat/FacebookPixel is licensed under OSL 3.0
- *
- * http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * Please see LICENSE.txt for the full text of the OSL 3.0 license
- */
-
 namespace Magestat\FacebookPixel\Block;
 
 use Magento\Framework\View\Element\Template;
@@ -19,35 +9,37 @@ use Magento\Cookie\Helper\Cookie;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Directory\Model\PriceCurrency;
 use Magestat\FacebookPixel\Model\PixelConfigurationInterface;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Exception\LocalizedException;
 
 /**
  * Class AbstractPixel
- * @package Magestat\FacebookPixel\Block
+ * Create class abstraction for each template
  */
 abstract class AbstractPixel extends Template
 {
     /**
-     * @var \Magento\Framework\Locale\ResolverInterface
+     * @var ResolverInterface
      */
     private $locale;
 
     /**
-     * @var \Magento\Cookie\Helper\Cookie
+     * @var Cookie
      */
     private $cookieHelper;
 
     /**
-     * @var \Magento\Framework\Serialize\Serializer\Json
+     * @var Json
      */
     private $jsonHelper;
 
     /**
-     * @var \Magento\Directory\Model\PriceCurrency
+     * @var PriceCurrency
      */
     private $price;
 
     /**
-     * @var \Magestat\FacebookPixel\Model\PixelConfigurationInterface
+     * @var PixelConfigurationInterface
      */
     private $pixelConfiguration;
 
@@ -99,7 +91,7 @@ abstract class AbstractPixel extends Template
 
     /**
      * @return mixed
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws NoSuchEntityException
      */
     public function getCurrencyCode()
     {
@@ -110,7 +102,7 @@ abstract class AbstractPixel extends Template
      * Return current website id.
      *
      * @return int
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws LocalizedException
      */
     public function getCurrentWebsiteId()
     {
