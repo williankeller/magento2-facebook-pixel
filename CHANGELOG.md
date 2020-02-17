@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+### [1.0.4](https://github.com/magestat/magento2-facebook-pixel/releases/tag/1.0.4) - 02/17/2020
+
+#### Added
+- ACL for this module
+
+
 ### [1.0.3](https://github.com/magestat/magento2-facebook-pixel/releases/tag/1.0.3) - 01/13/2020
 
 #### Improved
