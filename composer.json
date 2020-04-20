@@ -1,5 +1,5 @@
 {
-    "name": "magestat/module-facebook-pixel",
+    "name": "Internetrix/module-facebook-pixel",
     "description": "This extension allows you integrate the Facebook pixel to track your website visitors' actions.",
     "keywords": [
         "magento 2",
@@ -15,7 +15,7 @@
     ],
     "version": "1.0.4",
     "support": {
-        "issues": "https://github.com/magestat/magento2-facebook-pixel/issues/"
+        "issues": "https://github.com/Internetrix/magento2-facebook-pixel/issues/"
     },
     "require-dev": {
         "phpmd/phpmd": "@stable",
@@ -33,7 +33,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Magestat\\FacebookPixel\\": ""
+            "Internetrix\\FacebookPixel\\": ""
         }
     }
 }
