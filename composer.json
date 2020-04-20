@@ -1,5 +1,5 @@
 {
-    "name": "internetrix/magento2-facebook-pixel",
+    "name": "magestat/module-facebook-pixel",
     "description": "This extension allows you integrate the Facebook pixel to track your website visitors' actions.",
     "keywords": [
         "magento 2",
