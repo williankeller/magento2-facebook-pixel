@@ -137,12 +137,15 @@ abstract class AbstractPixel extends Template
     }
 
     /**
-     * @param $amount
+     * Round price
+     *
+     * @deprecated 102.0.1
+     * @param float $amount
      * @return float
      */
     public function formatPrice($amount)
     {
-        return $this->price->roundPrice($amount);
+        return $this->price->round($amount);
     }
 
     /**
