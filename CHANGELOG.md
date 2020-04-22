@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+### [1.0.5](https://github.com/magestat/magento2-facebook-pixel/releases/tag/1.0.5) - 04/22/2020
+
+#### Fixed
+- Uncaught Error: Call to undefined method PriceCurrency::roundPrice when viewing Product Page.
+
+
 ### [1.0.4](https://github.com/magestat/magento2-facebook-pixel/releases/tag/1.0.4) - 02/17/2020
 
 #### Added
