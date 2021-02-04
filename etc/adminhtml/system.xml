@@ -27,8 +27,9 @@
             <group id="settings" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
                 <label>Settings</label>
                 <field id="inc_tax" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Enabled</label>
+                    <label>Include tax</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Include tax for product prices</comment>
                 </field>
             </group>
             <group id="track" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label">
