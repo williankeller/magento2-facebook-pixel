@@ -23,6 +23,6 @@ define([
             content_type: 'product',
             currency: data.currency,
             contents: data.contents,
-        });
+        }, {eventID: data.orderId});
     };
 });
