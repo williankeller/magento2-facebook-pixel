@@ -7,7 +7,8 @@
         "Magestat_FacebookPixel/js/actions/success": {
             "currency": "<?= /* @noEscape */ $block->getCurrencyCode() ?>",
             "contents": <?= /* @noEscape */ $block->getCartContent() ?>,
-            "total": "<?= /* @noEscape */ $block->getCheckoutTotal() ?>"
+            "total": "<?= /* @noEscape */ $block->getCheckoutTotal() ?>",
+            "orderId": "<?= $block->escapeJs($block->getOrderId()) ?>"
         }
     }
 }

@@ -70,6 +70,11 @@ class Success extends AbstractPixel
         return $product;
     }
 
+    public function getOrderId(): string
+    {
+        return $this->getCurrentQuote()->getRealOrderId();
+    }
+
     /**
      * @return Order
      */
